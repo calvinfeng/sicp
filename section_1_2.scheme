@@ -41,16 +41,12 @@
 ;;; If a is less than 0, we should count that as 0 ways to make change
 ;;; If n is 0, we should count that as 0 ways to make change
 (define (count-change amount)
-  (cc amount 5)
+  (cc amount 5))
 
-  (define (cc amount kinds-of-coins))
-  (cond ((= amount 0) 1))
-  ((or (< amount 0) (= kinds-of-coins 0)) 0)
-  (else (+ (cc amount)))
-  (- kinds-of-coins 1)
-  (cc (- amount))
-  (first-denomination kinds-of-coins)
-  kinds-of-coins)
+(define (cc amount kinds-of-coins)
+  (cond ((= amount 0) 1)
+        ((or (< amount 0) (= kinds-of-coins 0)) 0)
+        (else (+ (cc amount (- kinds-of-coins 1)) (cc (- amount (first-denomination kinds-of-coins)) kinds-of-coins)))))
 
 (define (first-denomination kinds-of-coins)
   (cond ((= kinds-of-coins 1) 1)
