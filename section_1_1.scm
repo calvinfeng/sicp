@@ -27,8 +27,8 @@
   (if (cube-good-enough? guess target) guess (cube-root-step (improve-cube-guess guess target) target)))
 
 (define (improve-cube-guess guess target)
-  (/ (+ (/ target (square guess)) (* 2 guess)) 3)
-)
+  (/ (+ (/ target (square guess)) (* 2 guess)) 3))
+
 
 (define (cube-good-enough? guess target)
   (< (abs (- (* (square guess) guess) target)) 0.0001))

@@ -2,11 +2,11 @@
 
 ;;; Factorial
 (define (factorial n)
-  (fact-step 1 1 n))
+  (fact-iter 1 1 n))
 
-(define (fact-step product counter max-count)
+(define (fact-iter product counter max-count)
   (if (> counter max-count) product
-    (fact-step (* counter product) (+ counter 1) max-count)))
+    (fact-iter (* counter product) (+ counter 1) max-count)))
 
 (factorial 5)
 
@@ -14,7 +14,7 @@
 ;;; notion of a recursive procedure. When we describe the procedure as recurisve, we are referring to the syntactic fact
 ;;; that the procedure definition refers to the procedure itself. But when we describe a process as following a pattern
 ;;; that is, say, linearly recursive, we are speaking about how the process evolves, not about the syntax of how a
-;;; procedure is written. It may seem disturbing that we refer a recursive procedure such as fact-step as generating an
+;;; procedure is written. It may seem disturbing that we refer a recursive procedure such as fact-iter as generating an
 ;;; iterative process. However the process really is iterative: Its state is captured completely by its three state
 ;;; variables, and an interpreter need keep track of only three variables in order to execute the process.
 
