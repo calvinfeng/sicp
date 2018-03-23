@@ -14,7 +14,7 @@
     (+ (term a) (sum term (next a) next b))))
 
 (define (cube a)
-  (* a a a ))
+  (* a a a))
 
 (define (incre-by-1 n)
   (+ n 1))
